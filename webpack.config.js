@@ -44,6 +44,9 @@ module.exports = {
             test: /\.less$/,
             loader: ExtractTextPlugin.extract('style', 'css!less')
         }, {
+            test: /\.css$/,
+            loader: ExtractTextPlugin.extract('style', 'css')
+        }, {
             test: /\.js[x]?$/,
             exclude: /node_modules/,
             loader: 'babel?presets[]=es2015&presets[]=react'
@@ -100,7 +103,7 @@ if (process.env.NODE_ENV === 'production') {
             colors: true
         },
         plugins: [
-        new webpack.HotModuleReplacementPlugin()
+            new webpack.HotModuleReplacementPlugin()
         ]
     };
 }
